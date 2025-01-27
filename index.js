@@ -86,6 +86,11 @@ async function run() {
       const result = await courser.toArray();
       res.send(result)
     })
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+    };
 
   } finally {
 
